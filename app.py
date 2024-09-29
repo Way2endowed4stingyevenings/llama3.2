@@ -6,10 +6,12 @@
 import os
 import tempfile
 import streamlit as st
+import embedchain
 from embedchain import App
 import base64
 from streamlit_chat import message
 
+## print(embedchain.__version__)
 ## Configure the Embedchain App
 ## For this application we will use Llama-3.2 using @ollama you can choose from OpenAI, anthropic or any other LLM.
 ## Select the vector database as the opensource chroma db (you are free to choose any other vector database of your choice)
@@ -26,8 +28,8 @@ def embedchain_bot(db_path):
 
     def display_pdf(file):
         base64_pdf = base64.b64encode(file.read()).decode('utf-8')
-        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="400" 
-                         type="application/pdf"></iframe>'
+        pdf_display = (f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="400" '
+                       f'type="application/pdf"></iframe>')
 
         st.markdown(pdf_display, unsafe_allow_html=True)
 
