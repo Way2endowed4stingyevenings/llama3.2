@@ -1,0 +1,62 @@
+	import pandas as pd
+from docx import Document
+
+# Create a new Word document
+doc = Document()
+
+# Title
+doc.add_heading('Palladial Universe Sourcebook', 0)
+
+# Sections
+sections = [
+    ("Astrometric Guide & Cosmology", """
+        - Overview of the Palladial Universe's structure.
+        - The Palladial Core and major systems.
+        - The Twilight Frontier and uncharted regions.
+        - The Beacon Network and interstellar navigation.
+    """),
+    
+    ("Great Houses and Factions", """
+        - Descriptions of the major Great Houses in the Core.
+        - Political intrigue, relationships, and territory.
+        - Unaligned worlds and rogue factions.
+    """),
+
+    ("Outlying Regions and Planetary Descriptions", """
+        - Detailed descriptions of planets including:
+            - Palladia Prime, Veyos Prime, Khoreal Bastion.
+            - Tal’Zharr, Oblivion’s Verge, Nyx-Sarath.
+            - Forgeheart, Aurith-7, Nova’s Wake.
+        - Key locations, notable figures, and environmental hazards.
+    """),
+
+    ("Pre-Written Adventure: The Shattered Truth", """
+        - A structured campaign set in the Palladial Universe.
+        - Four-act structure with major encounters, NPCs, and branching outcomes.
+        - Maps for major locations such as Beacon Theta-9 and Nyx-Sarath.
+    """),
+
+    ("Supporting Materials", """
+        - Maps of planetary battlefields, ruins, and space stations.
+        - NPC Cards with attributes, skills, and unique abilities.
+        - Lore Handouts: Tavin Drest’s Research Notes, Forgeheart Distress Logs.
+    """),
+
+    ("Game Mechanics", """
+        - Void Corruption: Progression and mitigation mechanics.
+        - Faction Influence System: Dynamic relationships and politics.
+        - Exploration & Combat Systems: Navigation, planetary dangers, and strategic combat.
+    """)
+]
+
+# Add sections to the document
+for title, content in sections:
+    doc.add_heading(title, level=1)
+    doc.add_paragraph(content)
+
+# Save the document
+file_path = "/mnt/data/Palladial_Universe_Sourcebook.docx"
+doc.save(file_path)
+
+# Provide download link
+file_path
